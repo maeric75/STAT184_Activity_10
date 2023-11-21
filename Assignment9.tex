@@ -1,0 +1,540 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Activity \#10: Reproducible RMDs},
+  pdfauthor={Maeric Barrows},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Activity \#10: Reproducible RMDs}
+\author{Maeric Barrows}
+\date{2023-11-21}
+
+\begin{document}
+\maketitle
+
+\hypertarget{prologue-introducing-the-assignment}{%
+\subsection{Prologue: Introducing the
+Assignment}\label{prologue-introducing-the-assignment}}
+
+This R Markdown file is an extension of Activity 9: A First RMD File.
+This project was made in conjunction with GitHub. The link to the GitHub
+repository is provided here:
+\url{https://github.com/maeric75/STAT184_Activity_10}
+
+(Note for Prof.~Hatfield: The screenshot of my file directory is
+provided at the bottom of the assignment, above the code appendix. Also,
+the name for this file says ``Assigment 9.'' This is Activity 10, I just
+forgot to make a copy of it before editing this file and I just ran with
+it.)
+
+(Note for me: I (Maeric as of 11/21/2023) did not change any of the
+material from Activity 9. I just made the RMD file more accessible for
+future me. I hope I helped you.)
+
+\hypertarget{section-1-collatz-conjecture}{%
+\subsection{Section 1: Collatz
+Conjecture}\label{section-1-collatz-conjecture}}
+
+The Collatz conjecture, a famous function in mathematics, tests whether
+every integer eventually becomes the number 1 by running the number
+through two arithmetic operations. These are the operations present in
+the conjecture:
+
+\begin{itemize}
+\tightlist
+\item
+  If n (the integer being tested) is even: n = n / 2
+\item
+  If n is odd: n = 3n + 1
+\item
+  If n = 1: Stop the conjecture
+\end{itemize}
+
+In Assignment 3 of STAT 184, Prof.~Hatfield asked the students to find
+the ``stopping times'' for the first 10,000 integers greater than 0, and
+create a histogram of these stopping times. A stopping time is how many
+times a number goes through the Collatz conjecture before it becomes the
+number 1. To find this, we must first create code which will properly
+evaluate the Collatz conjecture. Then, we will use the sapply function
+so that the Collatz conjecture runs from integers 1 to 10,000. After
+this, we will turn our Collatz data into a data frame.
+
+Then, we will use ggplot2 to create a histogram using the data frame:
+
+\includegraphics{Assignment9_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+To make a conclusion about the data, we can observe the ``flow'' of the
+histogram. The bars close to the stopping number 0 are very short,
+followed by taller and taller bars until we get to just above the
+stopping number 50, where the bars start to get shorter again. In
+between stopping numbers 100 and 150, the bars generally increase in
+height for a bit, but go back to steadily decreasing in height after.
+The height of a bar corresponds to how many times a stopping number
+occurs. Our observations tell us that the very smallest and very largest
+stopping numbers do not occur very often, and that a significant amount
+of integers between 1 and 10,000 stop after about 50 recursions of the
+Collatz conjecture. The amount of integers that stop after about 125
+recursions is also greater than the numbers which stop after 100 or 150
+recursions.
+
+\hypertarget{section-2-the-price-of-diamonds}{%
+\subsection{Section 2: The Price of
+Diamonds}\label{section-2-the-price-of-diamonds}}
+
+In addition to creating data visualizations, the ggplot2 package
+features a data set about diamonds. The data set features data for
+53,940 diamonds, measuring them based on many variables, like carat
+(weight), cut quality, clarity, color, width (x), height (y), and depth
+(z), among others. All of these attributes contribute to a diamond's
+price. We can see the relationship between these variables and price by
+creating data visualizations and tables.
+
+First, we'll create a data visualization comparing the carat of a
+diamond and its price. Since there are so many diamonds in the data set,
+and we are looking for a general trend when comparing carat and price, a
+scatter plot is a good way to demonstrate this data.
+
+\includegraphics{Assignment9_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+This visualization shows that as the carat, or weight, of a diamond
+increases, the price also generally increases. This comparison is
+simple. If we want to add more variables to this graph, we can split all
+of the diamonds by their clarity. The scatter plot below still compares
+carat and price, but also compares those two variables to a diamond's
+clarity:
+
+\includegraphics{Assignment9_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+This graph also shows that price increases as carat increases. This
+visualization adds another comparison point with the clarity of the
+diamond. We can see that the plots that represent lower clarity diamonds
+(grouped in the top row of scatter plots) reach the highest prices
+further to the right than the plots with higher clarity (grouped in the
+middle and bottom row). This proves that as a diamond's clarity
+increases, its price generally increases as well.
+
+Visualizations are not the only way to demonstrate data and make
+conclusions about what results in a diamond's price. We can also create
+summary tables. Here is code that will create a summary table of the cut
+of a diamond and its price:
+
+\begin{verbatim}
+##         cut price_min price_Q1 price_median price_Q3 price_max price_mean
+## 1      Fair       337  2050.25       3282.0  5205.50     18574   4358.758
+## 2      Good       327  1145.00       3050.5  5028.00     18788   3928.864
+## 3 Very Good       336   912.00       2648.0  5372.75     18818   3981.760
+## 4   Premium       326  1046.00       3185.0  6296.00     18823   4584.258
+## 5     Ideal       326   878.00       1810.0  4678.50     18806   3457.542
+##   price_stdev count
+## 1    3560.387  1610
+## 2    3681.590  4906
+## 3    3935.862 12082
+## 4    4349.205 13791
+## 5    3808.401 21551
+\end{verbatim}
+
+This summary table provides a lot of statistics, some of which are
+confusing to decipher. Before creating the table, I assumed that
+diamonds with an ``Ideal'' cut would have a higher price than those with
+lower quality cuts, like ``Fair'' or ``Good.'' In reality, the data does
+not support that hypothesis. ``Ideal'' diamonds actually have the lowest
+minimum, first quartile, median, third quartile, and average price, the
+exact opposite of what I would expected. The lowest quality cut,
+``Fair,'' has the highest minimum, first quartile, and median price,
+while ``Premium'' has the highest third quartile and mean price.
+``Ideal'' is very close to first in maximum price, but is still slightly
+behind ``Very Good'' and ``Premium.'' This does not necessarily mean
+that ``Ideal'' diamonds absolutely have the lowest prices. Since there
+are much more ``Ideal'' diamonds than any other in this study, as shown
+by the ``count'' column, it is possible that the data of the ``Ideal''
+column is more accurate than the other cut types. It is difficult to
+make a concrete conclusion, but using this data, we can infer that cut
+quality has little to no effect on the price of a diamond.
+
+\hypertarget{section-3-course-takeaways-so-far}{%
+\subsection{Section 3: Course Takeaways (So
+Far)}\label{section-3-course-takeaways-so-far}}
+
+For Section 3 of this RMD assignment, Prof.~Hatfield asked us to reflect
+on what we have learned in the course. Something that I have always
+thought, since the beginning of the course, is that R is an incredibly
+overwhelming software to use. There are so many libraries of functions
+that could be used to solve any data-related problem you could think of.
+I am sure that I have not touched more than 2\% of what R has to offer
+in this course, and the 2\% I have seen is still filled with so many
+options for what to do that I find myself extremely overwhelmed in every
+assignment. Thus, with there being a lot to learn about R, I have
+already learned a lot. What follows is my attempt to bring up some
+things not touched on in this assignment already.
+
+\textbf{Learned Thing 1. PCIP}
+
+When first introduced to PCIP, or ``Plan, Code, Improve, Polish,'' I was
+doubtful that it would help me code in R. From the beginning, I liked to
+throw code at the wall and see what stuck. This worked in Python
+classes, but I found R to be an entirely different beast. As I
+mentioned, everything was so overwhelming for me. To fix this, I needed
+to slow my process down, and organize it a little better. PCIP has
+gotten me out of many ruts in this class, and I am thankful that I
+started taking the process seriously.
+
+\textbf{Learned Thing 2. Wrangling and Cleaning}
+
+When I first heard of data wrangling, I was excited, because I hoped it
+would pertain to a hobby of mine. I create my own Top 40 hit songs chart
+every week, in the style of the Billboard Hot 100, which involves taking
+data and reinterpret it. Making one of these charts typically takes
+hours, and I thought that data wrangling would automate the process a
+little. Unfortunately, I have not learned of a way to speed up my
+personal process yet, as the data I use comes in the form of an image,
+but if I can find data in other forms, like spreadsheets, I will be able
+to use my new-found data wrangling and cleaning skills to automate my
+Top 40 chart more than I already have. Below is the result of data
+wrangling I did from a previous assignment. I was very proud of figuring
+this one out.
+
+\begin{verbatim}
+## New names:
+## * `` -> `...1`
+## * `` -> `...3`
+## * `` -> `...4`
+## * `` -> `...6`
+## * `` -> `...7`
+## * `` -> `...9`
+## * `` -> `...10`
+## * `` -> `...12`
+## * `` -> `...13`
+## * `` -> `...15`
+## * `` -> `...16`
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 192 x 4
+##    `Pay Grade` `Marital Status`        Sex    Count
+##    <chr>       <chr>                   <chr>  <dbl>
+##  1 E-1         Single Without Children Male    9456
+##  2 E-1         Single Without Children Female  1309
+##  3 E-1         Single With Children    Male     365
+##  4 E-1         Single With Children    Female    80
+##  5 E-1         Joint Service Marriage  Male      40
+##  6 E-1         Joint Service Marriage  Female    38
+##  7 E-1         Civilian Marriage       Male    2579
+##  8 E-1         Civilian Marriage       Female   358
+##  9 E-2         Single Without Children Male   21600
+## 10 E-2         Single Without Children Female  3324
+## # i 182 more rows
+\end{verbatim}
+
+\textbf{Learned Thing 3. Perseverance}
+
+This will sound corny, but this class has taught me to persevere and
+work hard. In high school, I was used to things coming easy to me. I
+would pick up concepts quickly, and classes felt like a breeze. Here,
+things changed. I often felt like I was making no progress and that I
+was hitting a wall in my learning. Most assignments in this class take
+hours for me to complete, with more than a few taking days, something I
+was not accustomed to. Taking this class, and many others in my first
+semester, has been humbling. Even though I do not enjoy the stressful
+process of struggling, the feeling of pride at the end for completing a
+tough assignment is ultimately worth it. It is difficult to convey my
+level of perseverance in a data visualization, but this class has
+certainly made me realize how much it rewards me, so a visualization for
+my attitude about perseverance might look like a line graph trending
+upwards.
+
+\hypertarget{epilogue-screenshot-for-prof.-hatfield}{%
+\subsection{Epilogue: Screenshot for
+Prof.~Hatfield}\label{epilogue-screenshot-for-prof.-hatfield}}
+
+\begin{figure}
+\centering
+\includegraphics{"~/RMarkdown Files/Activity10Screenshot.png"}
+\caption{Screenshot of GitHub Desktop file directory}
+\end{figure}
+
+\newpage
+
+\hypertarget{code-appendix}{%
+\section{Code Appendix}\label{code-appendix}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}\AttributeTok{echo =} \ConstantTok{FALSE}\NormalTok{)}
+\CommentTok{\# Call the groundhog package.}
+\FunctionTok{library}\NormalTok{(groundhog)}
+\CommentTok{\# Load packages with groundhog to improve stability.}
+\NormalTok{pkgs }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{, }\StringTok{"dplyr"}\NormalTok{, }\StringTok{"readxl"}\NormalTok{, }\StringTok{"tidyr"}\NormalTok{)}
+\FunctionTok{groundhog.library}\NormalTok{(pkgs, }\StringTok{\textquotesingle{}2023{-}11{-}05\textquotesingle{}}\NormalTok{)}
+\CommentTok{\# Install tinytex for pdf knitting}
+\FunctionTok{library}\NormalTok{(tinytex)}
+\DocumentationTok{\#\#\# Calculate the Collatz conjecture and return the stopping number}
+\NormalTok{calculate\_collatz }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(number, }\AttributeTok{count =} \DecValTok{0}\NormalTok{)\{}
+  \ControlFlowTok{if}\NormalTok{(number }\SpecialCharTok{==} \DecValTok{1}\NormalTok{)\{}
+    \FunctionTok{return}\NormalTok{(count)}
+\NormalTok{  \}}\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{(number }\SpecialCharTok{\%\%} \DecValTok{2} \SpecialCharTok{==} \DecValTok{0}\NormalTok{)\{}
+\NormalTok{    new\_number }\OtherTok{\textless{}{-}}\NormalTok{ number }\SpecialCharTok{/} \DecValTok{2}
+    \FunctionTok{calculate\_collatz}\NormalTok{(}\AttributeTok{number =}\NormalTok{ new\_number, }\AttributeTok{count =}\NormalTok{ count }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)}
+\NormalTok{  \}}\ControlFlowTok{else}\NormalTok{\{}
+\NormalTok{    new\_number }\OtherTok{\textless{}{-}} \DecValTok{3}\SpecialCharTok{*}\NormalTok{number }\SpecialCharTok{+} \DecValTok{1}
+    \FunctionTok{calculate\_collatz}\NormalTok{(}\AttributeTok{number =}\NormalTok{ new\_number, }\AttributeTok{count =}\NormalTok{ count }\SpecialCharTok{+} \DecValTok{1}\NormalTok{)}
+\NormalTok{  \}}
+\NormalTok{\}}
+\DocumentationTok{\#\#\# Collects the stopping numbers when calculate\_collatz is run using numbers 1 to 10,000.}
+\NormalTok{sapply\_collatz }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(}
+  \AttributeTok{X =} \FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{10000}\NormalTok{,}\DecValTok{1}\NormalTok{),}
+  \AttributeTok{FUN =}\NormalTok{ calculate\_collatz}
+\NormalTok{)}
+\DocumentationTok{\#\#\# Creates a data frame to store the values of sapply\_collatz.}
+\NormalTok{collatz\_dataframe }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}
+  \AttributeTok{x =}\NormalTok{ sapply\_collatz}
+\NormalTok{)}
+\DocumentationTok{\#\#\# Creates a histogram using collatz\_dataframe.}
+\FunctionTok{ggplot}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ collatz\_dataframe,}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \StringTok{\textasciigrave{}}\AttributeTok{sapply\_collatz}\StringTok{\textasciigrave{}}\NormalTok{)}
+\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}
+    \AttributeTok{bins =} \DecValTok{50}\NormalTok{,}
+    \AttributeTok{fill =} \StringTok{"cyan"}\NormalTok{,}
+    \AttributeTok{color =} \StringTok{"black"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{x =} \StringTok{"Stopping Numbers"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Count"}\NormalTok{,}
+    \AttributeTok{title =} \StringTok{"Histogram of Stopping Numbers"}\NormalTok{,}
+    \AttributeTok{subtitle =} \StringTok{"Collatz Conjecture Input from 1 to 10,000"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_linedraw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}
+    \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 16L,}
+                              \AttributeTok{face =} \StringTok{"bold"}\NormalTok{,}
+                              \AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+    \AttributeTok{plot.subtitle =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 12L,}
+                                 \AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+    \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 12L),}
+    \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 12L)}
+\NormalTok{  )}
+\DocumentationTok{\#\#\# Creates a scatter plot to compare carat and price of a diamond.}
+\FunctionTok{ggplot}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ diamonds,}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ carat,}
+                \AttributeTok{y =}\NormalTok{ price)}
+\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{shape =} \StringTok{"circle"}\NormalTok{,}
+             \AttributeTok{size =} \FloatTok{1.5}\NormalTok{,}
+             \AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{x =} \StringTok{"Carat"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Price"}\NormalTok{,}
+    \AttributeTok{title =} \StringTok{"Carat vs. Price of a Diamond"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_linedraw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}
+    \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 16L,}
+                              \AttributeTok{face =} \StringTok{"bold"}\NormalTok{,}
+                              \AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+    \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 12L),}
+    \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 12L)}
+\NormalTok{    )}
+\DocumentationTok{\#\#\# Creates a graph that groups all diamonds by clarity, and compares carat and price.}
+\FunctionTok{ggplot}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ diamonds,}
+  \AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ carat,}
+                \AttributeTok{y =}\NormalTok{ price)}
+\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{shape =} \StringTok{"circle"}\NormalTok{,}
+             \AttributeTok{size =} \FloatTok{1.5}\NormalTok{,}
+             \AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}
+    \AttributeTok{x =} \StringTok{"Carat"}\NormalTok{,}
+    \AttributeTok{y =} \StringTok{"Price"}\NormalTok{,}
+    \AttributeTok{title =} \StringTok{"Carat vs. Price as Separated by Clarity"}
+\NormalTok{  ) }\SpecialCharTok{+}
+  \FunctionTok{theme\_linedraw}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}
+    \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 16L,}
+                              \AttributeTok{face =} \StringTok{"bold"}\NormalTok{,}
+                              \AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+    \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 12L),}
+    \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =}\NormalTok{ 12L)}
+\NormalTok{    ) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\FunctionTok{vars}\NormalTok{(clarity))}
+\DocumentationTok{\#\#\# Create a summary table using cut and price.}
+\CommentTok{\# Load data}
+\FunctionTok{data}\NormalTok{(diamonds)}
+
+\CommentTok{\# Summarize data}
+\NormalTok{cut\_price\_summary }\OtherTok{\textless{}{-}}\NormalTok{ diamonds }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(cut) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(cut, price) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarize}\NormalTok{(}
+    \FunctionTok{across}\NormalTok{(}
+      \AttributeTok{.cols =} \FunctionTok{where}\NormalTok{(is.numeric),}
+      \AttributeTok{.fns =} \FunctionTok{list}\NormalTok{(}
+        \AttributeTok{min =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{min}\NormalTok{(price, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+        \AttributeTok{Q1 =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{quantile}\NormalTok{(price, }\AttributeTok{probs =} \FloatTok{0.25}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+        \AttributeTok{median =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{median}\NormalTok{(price, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+        \AttributeTok{Q3 =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{quantile}\NormalTok{(price, }\AttributeTok{probs =} \FloatTok{0.75}\NormalTok{, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+        \AttributeTok{max =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{max}\NormalTok{(price, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+        \AttributeTok{mean =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{mean}\NormalTok{(price, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{),}
+        \AttributeTok{stdev =} \SpecialCharTok{\textasciitilde{}}\FunctionTok{sd}\NormalTok{(price, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{      )}
+\NormalTok{    ),}
+    \AttributeTok{count =} \FunctionTok{n}\NormalTok{()}
+\NormalTok{  )}
+
+\CommentTok{\# Convert to table}
+\NormalTok{cut\_price\_table }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(cut\_price\_summary)}
+
+\NormalTok{cut\_price\_table}
+\DocumentationTok{\#\#\# Wrangles the army data from previous assignments.}
+\DocumentationTok{\#\# Getting Stuff}
+\CommentTok{\# Set working directory}
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"C:/Users/Maeric/OneDrive/Documents"}\NormalTok{)}
+
+\CommentTok{\# Read in data from Excel file using a relative file path}
+\NormalTok{army\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_xlsx}\NormalTok{(}
+  \AttributeTok{path =} \StringTok{"\textasciitilde{}/RMarkdown Files/Army\_MaritalStatus.xlsx"}\NormalTok{,}
+  \AttributeTok{range =} \StringTok{"Sheet1!B8:Q37"}
+\NormalTok{)}
+
+\DocumentationTok{\#\# Wrangling}
+\CommentTok{\# Removing unnecessary rows and columns}
+\NormalTok{army\_data }\OtherTok{\textless{}{-}}\NormalTok{ army\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{, }\DecValTok{11}\NormalTok{,}\DecValTok{12}\NormalTok{))}\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{, }\DecValTok{12}\SpecialCharTok{:}\DecValTok{21}\NormalTok{, }\DecValTok{23}\SpecialCharTok{:}\DecValTok{27}\NormalTok{))}
+\FunctionTok{View}\NormalTok{(army\_data)}
+
+\CommentTok{\# Creating the group case data frame}
+\NormalTok{wrangled\_army\_data }\OtherTok{\textless{}{-}}\NormalTok{ army\_data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{rename}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Pay Grade"} \OtherTok{=} \DecValTok{1}\NormalTok{,}
+           \StringTok{"Single Without Children\_Male"} \OtherTok{=} \DecValTok{2}\NormalTok{,}
+           \StringTok{"Single Without Children\_Female"} \OtherTok{=} \DecValTok{3}\NormalTok{,}
+           \StringTok{"Single With Children\_Male"} \OtherTok{=} \DecValTok{4}\NormalTok{,}
+           \StringTok{"Single With Children\_Female"} \OtherTok{=} \DecValTok{5}\NormalTok{,}
+           \StringTok{"Joint Service Marriage\_Male"} \OtherTok{=} \DecValTok{6}\NormalTok{,}
+           \StringTok{"Joint Service Marriage\_Female"} \OtherTok{=} \DecValTok{7}\NormalTok{,}
+           \StringTok{"Civilian Marriage\_Male"} \OtherTok{=} \DecValTok{8}\NormalTok{,}
+           \StringTok{"Civilian Marriage\_Female"} \OtherTok{=} \DecValTok{9}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{slice}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}
+    \AttributeTok{cols =} \SpecialCharTok{!}\StringTok{"Pay Grade"}\NormalTok{,}
+    \AttributeTok{names\_to =} \StringTok{"marital\_status"}\NormalTok{,}
+    \AttributeTok{values\_to =} \StringTok{"Count"}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{  tidyr}\SpecialCharTok{::}\FunctionTok{separate\_wider\_delim}\NormalTok{(}
+    \AttributeTok{cols =}\NormalTok{ marital\_status,}
+    \AttributeTok{delim =} \StringTok{"\_"}\NormalTok{,}
+    \AttributeTok{names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Marital Status"}\NormalTok{, }\StringTok{"Sex"}\NormalTok{)}
+\NormalTok{  ) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}
+    \AttributeTok{Count =} \FunctionTok{as.numeric}\NormalTok{(Count)}
+\NormalTok{  )}
+
+\NormalTok{wrangled\_army\_data}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}

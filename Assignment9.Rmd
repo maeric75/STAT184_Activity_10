@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r}
+```{r, include=FALSE}
 # Call the groundhog package.
 library(groundhog)
 # Load packages with groundhog to improve stability.
@@ -17,11 +17,17 @@ pkgs <- c("ggplot2", "dplyr", "readxl", "tidyr")
 groundhog.library(pkgs, '2023-11-05')
 ```
 
+```{r, include-FALSE}
+# Call tinytex for pdf knitting
+install.packages("tinytex")
+tinytex::install_tinytex()
+```
+
 ## Prologue: Introducing the Assignment
 
 This R Markdown file is an extension of Activity 9: A First RMD File. This project was made in conjunction with GitHub. The link to the GitHub repository is provided here: https://github.com/maeric75/STAT184_Activity_10
 
-(Note for Prof. Hatfield: The screenshot of my file directory is provided at the bottom of the assignment, above the code appendix. Also, the name for this file says "Assigment 9." This is Activity 10, I just forgot to make a copy of it before editing this file and I just ran with it.)
+(Note for Prof. Hatfield: The screenshot of my file directory is provided at the bottom of the assignment, above the code appendix. Also, the name for this file says "Assignment 9." This is Activity 10, I just forgot to make a copy of it before editing this file and I just ran with it.)
 
 (Note for me: I (Maeric as of 11/21/2023) did not change any of the material from Activity 9. I just made the RMD file more accessible for future me. I hope I helped you.)
 
@@ -36,6 +42,8 @@ The Collatz conjecture, a famous function in mathematics, tests whether every in
 In Assignment 3 of STAT 184, Prof. Hatfield asked the students to find the "stopping times" for the first 10,000 integers greater than 0, and create a histogram of these stopping times. A stopping time is how many times a number goes through the Collatz conjecture before it becomes the number 1. To find this, we must first create code which will properly evaluate the Collatz conjecture. Then, we will use the sapply function so that the Collatz conjecture runs from integers 1 to 10,000. After this, we will turn our Collatz data into a data frame.
 
 ```{r}
+# ------ Collatz Conjecture Code ------
+
 ### Calculate the Collatz conjecture and return the stopping number
 calculate_collatz <- function(number, count = 0){
   if(number == 1){
@@ -51,6 +59,7 @@ calculate_collatz <- function(number, count = 0){
 ```
 
 ```{r}
+
 ### Collects the stopping numbers when calculate_collatz is run using numbers 1 to 10,000.
 sapply_collatz <- sapply(
   X = seq(1,10000,1),
@@ -59,6 +68,7 @@ sapply_collatz <- sapply(
 ```
 
 ```{r}
+
 ### Creates a data frame to store the values of sapply_collatz.
 collatz_dataframe <- as.data.frame(
   x = sapply_collatz
@@ -68,6 +78,7 @@ collatz_dataframe <- as.data.frame(
 Then, we will use ggplot2 to create a histogram using the data frame:
 
 ```{r}
+
 ### Creates a histogram using collatz_dataframe.
 ggplot(
   data = collatz_dataframe,
@@ -105,6 +116,8 @@ In addition to creating data visualizations, the ggplot2 package features a data
 First, we'll create a data visualization comparing the carat of a diamond and its price. Since there are so many diamonds in the data set, and we are looking for a general trend when comparing carat and price, a scatter plot is a good way to demonstrate this data.
 
 ```{r}
+
+# ------ Price of Diamonds Code ------
 ### Creates a scatter plot to compare carat and price of a diamond.
 ggplot(
   data = diamonds,
@@ -132,6 +145,7 @@ ggplot(
 This visualization shows that as the carat, or weight, of a diamond increases, the price also generally increases. This comparison is simple. If we want to add more variables to this graph, we can split all of the diamonds by their clarity. The scatter plot below still compares carat and price, but also compares those two variables to a diamond's clarity:
 
 ```{r}
+
 ### Creates a graph that groups all diamonds by clarity, and compares carat and price.
 ggplot(
   data = diamonds,
@@ -162,6 +176,7 @@ This graph also shows that price increases as carat increases. This visualizatio
 Visualizations are not the only way to demonstrate data and make conclusions about what results in a diamond's price. We can also create summary tables. Here is code that will create a summary table of the cut of a diamond and its price:
 
 ```{r}
+
 ### Create a summary table using cut and price.
 # Load data
 data(diamonds)
@@ -207,6 +222,9 @@ When first introduced to PCIP, or "Plan, Code, Improve, Polish," I was doubtful 
 When I first heard of data wrangling, I was excited, because I hoped it would pertain to a hobby of mine. I create my own Top 40 hit songs chart every week, in the style of the Billboard Hot 100, which involves taking data and reinterpret it. Making one of these charts typically takes hours, and I thought that data wrangling would automate the process a little. Unfortunately, I have not learned of a way to speed up my personal process yet, as the data I use comes in the form of an image, but if I can find data in other forms, like spreadsheets, I will be able to use my new-found data wrangling and cleaning skills to automate my Top 40 chart more than I already have. Below is the result of data wrangling I did from a previous assignment. I was very proud of figuring this one out.
 
 ```{r}
+
+# ------ Wrangling Army Data Code ------
+
 ### Wrangles the army data from previous assignments.
 ## Getting Stuff
 # Set working directory
@@ -259,7 +277,8 @@ wrangled_army_data
 This will sound corny, but this class has taught me to persevere and work hard. In high school, I was used to things coming easy to me. I would pick up concepts quickly, and classes felt like a breeze. Here, things changed. I often felt like I was making no progress and that I was hitting a wall in my learning. Most assignments in this class take hours for me to complete, with more than a few taking days, something I was not accustomed to. Taking this class, and many others in my first semester, has been humbling. Even though I do not enjoy the stressful process of struggling, the feeling of pride at the end for completing a tough assignment is ultimately worth it. It is difficult to convey my level of perseverance in a data visualization, but this class has certainly made me realize how much it rewards me, so a visualization for my attitude about perseverance might look like a line graph trending upwards.
 
 ## Epilogue: Screenshot for Prof. Hatfield
-![Screenshot of GitHub Desktop file directory]("~/RMarkdown Files/Activity10Screenshot.png")
+
+![Screenshot of GitHub desktop](C:/Users/Maeric/OneDrive/Documents/RMarkdown Files/Images/Activity10Screenshot.png)
 
 \newpage
 # Code Appendix
