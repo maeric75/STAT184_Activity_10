@@ -17,17 +17,11 @@ pkgs <- c("ggplot2", "dplyr", "readxl", "tidyr")
 groundhog.library(pkgs, '2023-11-05')
 ```
 
-```{r, include-FALSE}
-# Call tinytex for pdf knitting
-install.packages("tinytex")
-tinytex::install_tinytex()
-```
-
 ## Prologue: Introducing the Assignment
 
 This R Markdown file is an extension of Activity 9: A First RMD File. This project was made in conjunction with GitHub. The link to the GitHub repository is provided here: https://github.com/maeric75/STAT184_Activity_10
 
-(Note for Prof. Hatfield: The screenshot of my file directory is provided at the bottom of the assignment, above the code appendix. Also, the name for this file says "Assignment 9." This is Activity 10, I just forgot to make a copy of it before editing this file and I just ran with it.)
+(Note for Prof. Hatfield: In the GitHub repository, the file name is Assignment9. This is the file I initially linked and worked with for this assignment. For the purpose of submission, I have made a copy of this assignment called Activity10. The knitted html and pdf files will have this name, too.)
 
 (Note for me: I (Maeric as of 11/21/2023) did not change any of the material from Activity 9. I just made the RMD file more accessible for future me. I hope I helped you.)
 
@@ -42,6 +36,7 @@ The Collatz conjecture, a famous function in mathematics, tests whether every in
 In Assignment 3 of STAT 184, Prof. Hatfield asked the students to find the "stopping times" for the first 10,000 integers greater than 0, and create a histogram of these stopping times. A stopping time is how many times a number goes through the Collatz conjecture before it becomes the number 1. To find this, we must first create code which will properly evaluate the Collatz conjecture. Then, we will use the sapply function so that the Collatz conjecture runs from integers 1 to 10,000. After this, we will turn our Collatz data into a data frame.
 
 ```{r}
+
 # ------ Collatz Conjecture Code ------
 
 ### Calculate the Collatz conjecture and return the stopping number
@@ -118,6 +113,7 @@ First, we'll create a data visualization comparing the carat of a diamond and it
 ```{r}
 
 # ------ Price of Diamonds Code ------
+
 ### Creates a scatter plot to compare carat and price of a diamond.
 ggplot(
   data = diamonds,
